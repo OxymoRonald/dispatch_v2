@@ -16,12 +16,27 @@
             pointer-events: none;
         }
         .column {
-            background-color: rgb(255, 17, 0);
             width: 400px;
             min-height: 100px;
             margin-bottom: 15px;
             padding:10px;
         }
+            #col_1047 {
+                background-color: blue;
+            }
+            #col_1008 {
+                background-color: green;
+            }
+            #col_1007 {
+                background-color: red;
+            }
+            #col_1006 {
+                background-color: yellow;
+            }
+            #col_1042 {
+                background-color: brown;
+            }
+
         .staff_card {
             background-color: rgb(97, 97, 235);
             padding:3px 5px 3px 5px;
@@ -71,43 +86,48 @@
         </tr>
         <tr>
             <td>
-                <div id="col1" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    Col 1
+                <div id="col_1047" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    On Call
                 </div>
             </td>
             <td>
-                <div id="col2a" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    col 2a
+                <div id="col_1008" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    10-8
                 </div>
-                <div id="col2b" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    col 2b
+                <div id="col_1006" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    10-6
                 </div>
-                <div id="col2c" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    col 2c
+                <div id="col_1007" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    10-7
                 </div>
             </td>
             <td>
-                <div id="col3" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="col_1042" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <span>Off Duty</span>
                     <div draggable="true" ondragstart="drag(event)" id="drag1" class="staff_card">
                         <span class="no-drag staff_card_callsign">01</span>
-                        <span>Firstname Lastname</span>
+                        <span class="no-drag">Firstname Lastname</span>
+                        <span class="no-drag">time</span>
                     </div>
                     <div draggable="true" ondragstart="drag(event)" id="drag2" class="staff_card">
                         <span class="no-drag staff_card_callsign">02</span>
-                        <span>Firstname Lastname</span>
+                        <span class="no-drag">Firstname Lastname</span>
+                        <span class="no-drag">time</span>
                     </div>
                     <div draggable="true" ondragstart="drag(event)" id="drag3" class="staff_card">
                         <span class="no-drag staff_card_callsign">03</span>
-                        <span>Firstname Lastname</span>
+                        <span class="no-drag">Firstname Lastname</span>
+                        <span class="no-drag">time</span>
                     </div>
                     <div draggable="true" ondragstart="drag(event)" id="drag4" class="staff_card">
                         <span class="no-drag staff_card_callsign">04</span>
-                        <span>Firstname Lastname</span>
+                        <span class="no-drag">Firstname Lastname</span>
+                        <span class="no-drag">time</span>
                     </div>
                     <div draggable="true" ondragstart="drag(event)" id="drag5" class="staff_card">
                         <span class="no-drag staff_card_callsign">05</span>
-                        <span>Firstname Lastname</span>
+                        <span class="no-drag">Firstname Lastname</span>
+                        <span class="no-drag">time</span>
                     </div>
                 </div>
             </td>
