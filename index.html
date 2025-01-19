@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+
+<head>
+    <!-- python -m http.server -->
+    <title>Draggable multi column</title>
+    <style>
+        #drag_table, #drag_table th, #drag_table td {
+            border: 1px solid blue;
+            vertical-align: top;
+        }
+        .no-drag {
+            pointer-events: none;
+        }
+        .column {
+            background-color: rgb(255, 17, 0);
+            width: 400px;
+            min-height: 100px;
+            margin-bottom: 15px;
+            padding:10px;
+        }
+        .staff_card {
+            background-color: rgb(97, 97, 235);
+            padding:3px 5px 3px 5px;
+            line-height: 30px;
+            margin-bottom: 5px;
+            border:1px solid greenyellow;
+            border-radius: 18px 5px 5px 18px;
+        }
+            .staff_card:hover {
+                cursor: grab;
+            }
+            .staff_card:active {
+                cursor: grabbing;
+            }
+        .staff_card_callsign {
+            padding:3px;
+            border: 1px solid black;
+            border-radius:15px;
+            background-color: aqua;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <table id="drag_table">
+        <tr>
+            <th>Col 1</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
+        </tr>
+        <tr>
+            <td>
+                <div id="col1" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    Col 1
+                </div>
+            </td>
+            <td>
+                <div id="col2a" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    col 2a
+                </div>
+                <div id="col2b" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    col 2b
+                </div>
+                <div id="col2c" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    col 2c
+                </div>
+            </td>
+            <td>
+                <div id="col3" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <span>Off Duty</span>
+                    <div draggable="true" ondragstart="drag(event)" id="drag1" class="staff_card">
+                        <span class="no-drag staff_card_callsign">01</span>
+                        <span>Firstname Lastname</span>
+                    </div>
+                    <div draggable="true" ondragstart="drag(event)" id="drag2" class="staff_card">
+                        <span class="no-drag staff_card_callsign">02</span>
+                        <span>Firstname Lastname</span>
+                    </div>
+                    <div draggable="true" ondragstart="drag(event)" id="drag3" class="staff_card">
+                        <span class="no-drag staff_card_callsign">03</span>
+                        <span>Firstname Lastname</span>
+                    </div>
+                    <div draggable="true" ondragstart="drag(event)" id="drag4" class="staff_card">
+                        <span class="no-drag staff_card_callsign">04</span>
+                        <span>Firstname Lastname</span>
+                    </div>
+                    <div draggable="true" ondragstart="drag(event)" id="drag5" class="staff_card">
+                        <span class="no-drag staff_card_callsign">05</span>
+                        <span>Firstname Lastname</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
