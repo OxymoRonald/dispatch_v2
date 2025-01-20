@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
-    <meta charset="UTF-8">
-    <meta name="google" content="notranslate">
-    <meta http-equiv="Content-Language" content="en">
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="en">
 
 <head>
     <!-- python -m http.server -->
@@ -17,24 +17,31 @@
         }
         .column {
             width: 400px;
-            min-height: 100px;
             margin-bottom: 15px;
-            padding:10px;
+            padding:0px 20px 8px 20px;
+            min-height: 60px;
         }
+            .col_title {
+                /* background-color: coral; */
+                /* border:1px solid red; */
+                line-height: 30px;
+                text-align: center;
+            }
             #col_1047 {
-                background-color: blue;
+                background-color: rgb(96, 96, 219);
             }
             #col_1008 {
-                background-color: green;
+                background-color: rgb(109, 236, 109);
             }
             #col_1007 {
-                background-color: red;
+                background-color: rgb(236, 116, 116);
             }
             #col_1006 {
-                background-color: yellow;
+                background-color: rgb(238, 238, 137);
             }
             #col_1042 {
                 background-color: brown;
+                padding-bottom: 50px;
             }
 
         .staff_card {
@@ -58,7 +65,7 @@
             background-color: aqua;
         }
     </style>
-    <script>
+    <!-- <script>
         function allowDrop(ev) {
             ev.preventDefault();
         }
@@ -73,7 +80,9 @@
             ev.target.appendChild(document.getElementById(data));
         }
 
-    </script>
+    </script> -->
+    <!-- <script type="text/javascript" src="assets/jquery-3.7.1.min.js"></script> -->
+    <script type="text/javascript" src="assets/drag_n_drop.js"></script>
 </head>
 
 <body>
@@ -92,7 +101,7 @@
             </td>
             <td>
                 <div id="col_1008" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    10-8
+                    <div class="no-drag col_title">10-8</div>
                 </div>
                 <div id="col_1006" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
                     10-6
