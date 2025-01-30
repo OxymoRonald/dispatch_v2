@@ -1,3 +1,8 @@
+// ToDo
+// Add nesting for +1\
+// Re-order functions
+
+
 // JSON file name
 let json_file = "assets/staff.json";
 
@@ -73,7 +78,9 @@ function updatePage(){
     console.log("--- Updating page ---")
     
     try{
-        
+        // Calculate time
+        time_now = Date.now();
+
         // Define staff list by status
         var ems_staff_list_06 = "<span>10-6</span>";
         var ems_staff_list_07 = "<span>10-7</span>";
@@ -83,7 +90,18 @@ function updatePage(){
         var ems_staff_list_99 = "<span>+1</span>";
 
         for( const[index, staff_member] of ems_staff.entries()){
+            // Calculate time in queue
+            time_in_queue = Math.round((time_now - staff_member.timestamp) / 1000)
+            if(time_in_queue > 60){
+                time_in_queue = Math.round(time_in_queue / 60) + "m"
+            }
+            else{
+                time_in_queue = time_in_queue + "s"
+            }
+
+            // Process based on status
             // If 42
+            console.log("    Populating status lists")
             if(staff_member.status == 42){
                 
                 ems_staff_list_42 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
@@ -98,7 +116,7 @@ function updatePage(){
                 ems_staff_list_06 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
                 ems_staff_list_06 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                 ems_staff_list_06 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                ems_staff_list_06 += "<span class='no-drag'>time</span>"
+                ems_staff_list_06 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
                 ems_staff_list_06 += "</div>"  
 
             }
@@ -108,7 +126,7 @@ function updatePage(){
                 ems_staff_list_07 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
                 ems_staff_list_07 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                 ems_staff_list_07 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                ems_staff_list_07 += "<span class='no-drag'>time</span>"
+                ems_staff_list_07 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
                 ems_staff_list_07 += "</div>"  
 
             }
@@ -118,7 +136,7 @@ function updatePage(){
                 ems_staff_list_08 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
                 ems_staff_list_08 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                 ems_staff_list_08 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                ems_staff_list_08 += "<span class='no-drag'>time</span>"
+                ems_staff_list_08 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
                 ems_staff_list_08 += "</div>"  
 
             }
@@ -128,31 +146,31 @@ function updatePage(){
                 ems_staff_list_47 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
                 ems_staff_list_47 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                 ems_staff_list_47 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                ems_staff_list_47 += "<span class='no-drag'>time</span>"
+                ems_staff_list_47 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
                 ems_staff_list_47 += "</div>"  
 
             }
+            // Else +1, add to parent
             else{
                 
                 ems_staff_list_99 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
                 ems_staff_list_99 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                 ems_staff_list_99 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                ems_staff_list_99 += "<span class='no-drag'>time</span>"
+                ems_staff_list_99 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
                 ems_staff_list_99 += "</div>"  
 
             }
 
         }
 
-
         // Update page areas
+        console.log("    Updating HTML areas")
         document.getElementById("col_1006").innerHTML = ems_staff_list_06;
         document.getElementById("col_1007").innerHTML = ems_staff_list_07;
         document.getElementById("col_1008").innerHTML = ems_staff_list_08;
         document.getElementById("col_1042").innerHTML = ems_staff_list_42;
         document.getElementById("col_1047").innerHTML = ems_staff_list_47;
         document.getElementById("col_9999").innerHTML = ems_staff_list_99;
-        // id="col_1042" 
     }
     catch{
         console.log("    Update failed.")
@@ -166,6 +184,13 @@ function updatePage(){
 
 // On update (button push)
 function updateDispatch(id, status){
+
+    console.log("Update Dispatch ID: " + id)
+    console.log("Update Dispatch Status: " + status)
+
+    // updateDispatch((updating).slice(6)*1, (ev.target.id).slice(6)*1)
+    id = id.slice(6)*1
+    status = status.slice(6)*1
 
     // Update status for staff member
     ems_staff[id]['status'] = status;
@@ -186,12 +211,6 @@ function updateDispatch(id, status){
 
 }
 
-
-//  onclick='updateDispatch(" + index + ", 8)'/>";
-
-// Simple drag n drop
-
-// Maybe use dragstart even to store the ID of the elemenent beeing dragged
 
 // Variable to store the child we're updating on drag and drop
 var updating = ""
@@ -216,8 +235,8 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-    // console.log("Target ID: " + ev.target.id)
-    // console.log("Updating Child: " +  updating)
+    console.log("Target ID: " + ev.target.id)
+    console.log("Updating Child: " +  updating)
     console.log("Child ID: " + (updating).slice(6))
     console.log("Child Name: " + ems_staff[(updating).slice(6)].name)
     // Update status for staff member
@@ -225,7 +244,8 @@ function drop(ev) {
     console.log("New Status: " + (ev.target.id).slice(6)*1)
     // ems_staff[(updating).slice(6)]['status'] = (ev.target.id).slice(6);
     // updatePage();
-    updateDispatch((updating).slice(6)*1, (ev.target.id).slice(6)*1)
+    updateDispatch(updating, ev.target.id)
+    // updateDispatch((updating).slice(6)*1, (ev.target.id).slice(6)*1)
 }
 
 
@@ -233,4 +253,4 @@ function drop(ev) {
 setInterval(function(){ 
     console.log(timestamp() + " - Update page.")
     updatePage(); 
-}, 10000);
+}, 30000);
