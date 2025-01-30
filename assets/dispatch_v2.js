@@ -126,17 +126,14 @@ function updateDispatch(id, status){
 
 }
 
-// Update page sections every 30 seconds
-setInterval(function(){ 
-    console.log(timestamp() + " - Update page.")
-    updatePage(); 
-}, 30000);
 
 //  onclick='updateDispatch(" + index + ", 8)'/>";
 
 // Simple drag n drop
 
 // Maybe use dragstart even to store the ID of the elemenent beeing dragged
+var updating = ""
+// console.log(updating)
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -144,13 +141,32 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
+    
+    // console.log(ev.srcElement.id)
+    // console.log(ev)
+    updating = document.getElementById(ev.dataTransfer.getData("text")).id
+    // console.log("Child ID: " + document.getElementById(ev.dataTransfer.getData("text")).id)
 }
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-    console.log(ev.target)
-    console.log(ev.target.id)
-    console.log("ID: " + ev.target.id)
+    // console.log(ev.target)
+    // console.log(ev.target.id)
+    console.log("Target ID: " + ev.target.id)
+    console.log("Updating Child: " +  updating)
+    console.log("Child ID: " + (updating).slice(6))
+    console.log("Child Name: " + ems_staff[(updating).slice(6)].name)
+    // Update status for staff member
+    console.log("Old Status: " + ems_staff[(updating).slice(6)]['status'])
+    console.log("New Status: " + (ev.target.id).slice(6))
+    ems_staff[(updating).slice(6)]['status'] = (ev.target.id).slice(6);
 }
+
+
+// Update page sections every 30 seconds
+setInterval(function(){ 
+    console.log(timestamp() + " - Update page.")
+    updatePage(); 
+}, 10000);
