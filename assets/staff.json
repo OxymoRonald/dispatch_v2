@@ -1,0 +1,124 @@
+{ 
+    "staff":[
+        {
+            "name":"Neil Down",
+            "callsign": 1            
+        },
+        {
+            "name":"Bunny O'connor",
+            "callsign": 2            
+        },
+        {
+            "name":"Emma Thomas",
+            "callsign": 3            
+        },
+        {
+            "name":"Giggle Gooberson",
+            "callsign": 8            
+        },
+        {
+            "name":"Austin Olander",
+            "callsign": 9            
+        },
+        {
+            "name":"Okami Scarlet",
+            "callsign": 10            
+        },
+        {
+            "name":"Clint Taurus",
+            "callsign": 11            
+        },
+        {
+            "name":"Shaw Macdonald",
+            "callsign": 17            
+        },
+        {
+            "name":"Dutch Courage",
+            "callsign": 18            
+        },
+        {
+            "name":"Paul Selena Monroe",
+            "callsign": 19            
+        },
+        {
+            "name":"Maya Monroe",
+            "callsign": 22            
+        },
+        {
+            "name":"Chris Wyatt",
+            "callsign": 30            
+        },
+        {
+            "name":"Freya Glace",
+            "callsign": 31            
+        },
+        {
+            "name":"Tray Jackson",
+            "callsign": 32            
+        },
+        {
+            "name":"Mukulu Umba",
+            "callsign": 33            
+        },
+        {
+            "name":"Jutty Graffanino",
+            "callsign": 34            
+        },
+        {
+            "name":"Gabe Logan",
+            "callsign": 35            
+        },
+        {
+            "name":"Jordan Cross",
+            "callsign": 36            
+        },
+        {
+            "name":"Steven Bean",
+            "callsign": 37            
+        },
+        {
+            "name":"Kaito Arasaka",
+            "callsign": 38            
+        },
+        {
+            "name":"Jordan Ried",
+            "callsign": 39            
+        },
+        {
+            "name":"Hat Dancin",
+            "callsign": 40            
+        },
+        {
+            "name":"Mark Reid",
+            "callsign": 49            
+        },
+        {
+            "name":"Sky Brave",
+            "callsign": 50            
+        },
+        {
+            "name":"Brodie Gomez",
+            "callsign": 51            
+        },
+        {
+            "name":"Riat Zilla",
+            "callsign": 52            
+        },
+        {
+            "name":"Jesse Chains",
+            "callsign": 53            
+        },
+        {
+            "name":"Alex Ortiz",
+            "callsign": 54            
+        },
+        {
+            "name":"jenny Campbell",
+            "callsign": 55            
+        },
+        {
+            "name":"Tony Goobis",
+            "callsign":62            
+        }
+    ]
+}
