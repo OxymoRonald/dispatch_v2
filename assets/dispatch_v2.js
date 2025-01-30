@@ -75,7 +75,12 @@ function updatePage(){
     try{
         
         // Define staff list by status
+        var ems_staff_list_06 = "<span>10-6</span>";
+        var ems_staff_list_07 = "<span>10-7</span>";
+        var ems_staff_list_08 = "<span>10-8</span>";
         var ems_staff_list_42 = "<span>Off Duty</span>";
+        var ems_staff_list_47 = "<span>On A Call</span>";
+        var ems_staff_list_99 = "<span>+1</span>";
 
         for( const[index, staff_member] of ems_staff.entries()){
             // If 42
@@ -84,14 +89,69 @@ function updatePage(){
                 ems_staff_list_42 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
                 ems_staff_list_42 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                 ems_staff_list_42 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                ems_staff_list_42 += "<span class='no-drag'>time</span>"
                 ems_staff_list_42 += "</div>"  
+
             }
+            // Elif 10-6
+            else if(staff_member.status == 6){
+                
+                ems_staff_list_06 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
+                ems_staff_list_06 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
+                ems_staff_list_06 += "<span class='no-drag'>"+ staff_member.name +"</span>"
+                ems_staff_list_06 += "<span class='no-drag'>time</span>"
+                ems_staff_list_06 += "</div>"  
+
+            }
+            // Elif 10-7
+            else if(staff_member.status == 7){
+                
+                ems_staff_list_07 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
+                ems_staff_list_07 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
+                ems_staff_list_07 += "<span class='no-drag'>"+ staff_member.name +"</span>"
+                ems_staff_list_07 += "<span class='no-drag'>time</span>"
+                ems_staff_list_07 += "</div>"  
+
+            }
+            // Elif 10-8
+            else if(staff_member.status == 8){
+                
+                ems_staff_list_08 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
+                ems_staff_list_08 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
+                ems_staff_list_08 += "<span class='no-drag'>"+ staff_member.name +"</span>"
+                ems_staff_list_08 += "<span class='no-drag'>time</span>"
+                ems_staff_list_08 += "</div>"  
+
+            }
+            // Elif 10-47
+            else if(staff_member.status == 47){
+                
+                ems_staff_list_47 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
+                ems_staff_list_47 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
+                ems_staff_list_47 += "<span class='no-drag'>"+ staff_member.name +"</span>"
+                ems_staff_list_47 += "<span class='no-drag'>time</span>"
+                ems_staff_list_47 += "</div>"  
+
+            }
+            else{
+                
+                ems_staff_list_99 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + index + "' class='staff_card'>"
+                ems_staff_list_99 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
+                ems_staff_list_99 += "<span class='no-drag'>"+ staff_member.name +"</span>"
+                ems_staff_list_99 += "<span class='no-drag'>time</span>"
+                ems_staff_list_99 += "</div>"  
+
+            }
+
         }
 
 
         // Update page areas
+        document.getElementById("col_1006").innerHTML = ems_staff_list_06;
+        document.getElementById("col_1007").innerHTML = ems_staff_list_07;
+        document.getElementById("col_1008").innerHTML = ems_staff_list_08;
         document.getElementById("col_1042").innerHTML = ems_staff_list_42;
+        document.getElementById("col_1047").innerHTML = ems_staff_list_47;
+        document.getElementById("col_9999").innerHTML = ems_staff_list_99;
         // id="col_1042" 
     }
     catch{
@@ -132,6 +192,8 @@ function updateDispatch(id, status){
 // Simple drag n drop
 
 // Maybe use dragstart even to store the ID of the elemenent beeing dragged
+
+// Variable to store the child we're updating on drag and drop
 var updating = ""
 // console.log(updating)
 
@@ -141,10 +203,12 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
+
+    // Get ID of the child we're updating
+    updating = document.getElementById(ev.dataTransfer.getData("text")).id
     
     // console.log(ev.srcElement.id)
     // console.log(ev)
-    updating = document.getElementById(ev.dataTransfer.getData("text")).id
     // console.log("Child ID: " + document.getElementById(ev.dataTransfer.getData("text")).id)
 }
 
@@ -152,16 +216,16 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-    // console.log(ev.target)
-    // console.log(ev.target.id)
-    console.log("Target ID: " + ev.target.id)
-    console.log("Updating Child: " +  updating)
+    // console.log("Target ID: " + ev.target.id)
+    // console.log("Updating Child: " +  updating)
     console.log("Child ID: " + (updating).slice(6))
     console.log("Child Name: " + ems_staff[(updating).slice(6)].name)
     // Update status for staff member
     console.log("Old Status: " + ems_staff[(updating).slice(6)]['status'])
-    console.log("New Status: " + (ev.target.id).slice(6))
-    ems_staff[(updating).slice(6)]['status'] = (ev.target.id).slice(6);
+    console.log("New Status: " + (ev.target.id).slice(6)*1)
+    // ems_staff[(updating).slice(6)]['status'] = (ev.target.id).slice(6);
+    // updatePage();
+    updateDispatch((updating).slice(6)*1, (ev.target.id).slice(6)*1)
 }
 
 
