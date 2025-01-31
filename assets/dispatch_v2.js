@@ -56,7 +56,7 @@ function updatePage(){
             var ems_staff_list_07 = "<span class='no-drag col_title'>On Break</span>";
             var ems_staff_list_08 = "<span class='no-drag col_title'>Ready</span>";
             var ems_staff_list_42 = "<span class='no-drag col_title'>Off Duty</span>";
-            var ems_staff_list_47 = "<span class='no-drag col_title'>On call</span>";
+            var ems_staff_list_47 = "<span class='no-drag col_title'>On a call</span>";
             var ems_staff_list_99 = "<span class='no-drag col_title'>+1</span>";
 
             // Iterate through staff list
@@ -75,10 +75,10 @@ function updatePage(){
                     ems_staff_list_06 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + staff_member.callsign + "' class='staff_card'>"
                     ems_staff_list_06 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                     ems_staff_list_06 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                    ems_staff_list_06 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
-                    ems_staff_list_06 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
-                    ems_staff_list_06 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
-                    ems_staff_list_06 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
+                    // ems_staff_list_06 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
+                    ems_staff_list_06 += "<span class='no-drag queuetime'> (" + time_in_queue + ")</span>"
+                    // ems_staff_list_06 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
+                    // ems_staff_list_06 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
                     for(child of staff_member.children){
 
                         // Get child by callsign
@@ -87,8 +87,8 @@ function updatePage(){
                         ems_staff_list_06 += "<div draggable='true' ondragstart='drag(event)' class='staff_card no-drag'>"
                         ems_staff_list_06 += "<span class='no-drag staff_card_callsign'>"+ ems_staff[staff_index].callsign +"</span>"
                         ems_staff_list_06 += "<span class='no-drag'>"+ ems_staff[staff_index].name +"</span>"
-                        ems_staff_list_06 += "<span class='no-drag'> (" + ems_staff[staff_index].status + ")</span>"
-                        ems_staff_list_06 += "<span class='no-drag'> Parent: ("+ ems_staff[staff_index].parent +")</span>"
+                        // ems_staff_list_06 += "<span class='no-drag'> (" + ems_staff[staff_index].status + ")</span>"
+                        // ems_staff_list_06 += "<span class='no-drag'> Parent: ("+ ems_staff[staff_index].parent +")</span>"
                         ems_staff_list_06 += "</div>"
 
                     }
@@ -100,10 +100,10 @@ function updatePage(){
                     ems_staff_list_07 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + staff_member.callsign + "' class='staff_card'>"
                     ems_staff_list_07 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                     ems_staff_list_07 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                    ems_staff_list_07 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
-                    ems_staff_list_07 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
-                    ems_staff_list_07 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
-                    ems_staff_list_07 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
+                    // ems_staff_list_07 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
+                    ems_staff_list_07 += "<span class='no-drag queuetime'> (" + time_in_queue + ")</span>"
+                    // ems_staff_list_07 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
+                    // ems_staff_list_07 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
                     for(child of staff_member.children){
 
                         // Get child by callsign
@@ -112,8 +112,8 @@ function updatePage(){
                         ems_staff_list_07 += "<div draggable='true' ondragstart='drag(event)' class='staff_card no-drag'>"
                         ems_staff_list_07 += "<span class='no-drag staff_card_callsign'>"+ ems_staff[staff_index].callsign +"</span>"
                         ems_staff_list_07 += "<span class='no-drag'>"+ ems_staff[staff_index].name +"</span>"
-                        ems_staff_list_07 += "<span class='no-drag'> (" + ems_staff[staff_index].status + ")</span>"
-                        ems_staff_list_07 += "<span class='no-drag'> Parent: ("+ ems_staff[staff_index].parent +")</span>"
+                        // ems_staff_list_07 += "<span class='no-drag'> (" + ems_staff[staff_index].status + ")</span>"
+                        // ems_staff_list_07 += "<span class='no-drag'> Parent: ("+ ems_staff[staff_index].parent +")</span>"
                         ems_staff_list_07 += "</div>"
 
                     }
@@ -125,10 +125,10 @@ function updatePage(){
                     ems_staff_list_08 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + staff_member.callsign + "' class='staff_card'>"
                     ems_staff_list_08 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                     ems_staff_list_08 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                    ems_staff_list_08 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
-                    ems_staff_list_08 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
-                    ems_staff_list_08 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
-                    ems_staff_list_08 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
+                    // ems_staff_list_08 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
+                    ems_staff_list_08 += "<span class='no-drag queuetime'> (" + time_in_queue + ")</span>"
+                    // ems_staff_list_08 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
+                    // ems_staff_list_08 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
                     for(child of staff_member.children){
 
                         // Get child by callsign
@@ -137,8 +137,8 @@ function updatePage(){
                         ems_staff_list_08 += "<div draggable='true' ondragstart='drag(event)' class='staff_card no-drag'>"
                         ems_staff_list_08 += "<span class='no-drag staff_card_callsign'>"+ ems_staff[staff_index].callsign +"</span>"
                         ems_staff_list_08 += "<span class='no-drag'>"+ ems_staff[staff_index].name +"</span>"
-                        ems_staff_list_08 += "<span class='no-drag'> (" + ems_staff[staff_index].status + ")</span>"
-                        ems_staff_list_08 += "<span class='no-drag'> Parent: ("+ ems_staff[staff_index].parent +")</span>"
+                        // ems_staff_list_08 += "<span class='no-drag'> (" + ems_staff[staff_index].status + ")</span>"
+                        // ems_staff_list_08 += "<span class='no-drag'> Parent: ("+ ems_staff[staff_index].parent +")</span>"
                         ems_staff_list_08 += "</div>"
 
                     }
@@ -150,9 +150,9 @@ function updatePage(){
                     ems_staff_list_42 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + staff_member.callsign + "' class='staff_card'>"
                     ems_staff_list_42 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                     ems_staff_list_42 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                    ems_staff_list_42 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
-                    ems_staff_list_42 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
-                    ems_staff_list_42 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
+                    // ems_staff_list_42 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
+                    // ems_staff_list_42 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
+                    // ems_staff_list_42 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
                     ems_staff_list_42 += "</div>"  
                 }
 
@@ -161,10 +161,10 @@ function updatePage(){
                     ems_staff_list_47 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + staff_member.callsign + "' class='staff_card'>"
                     ems_staff_list_47 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                     ems_staff_list_47 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                    ems_staff_list_47 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
-                    ems_staff_list_47 += "<span class='no-drag'> (" + time_in_queue + ")</span>"
-                    ems_staff_list_47 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
-                    ems_staff_list_47 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
+                    // ems_staff_list_47 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
+                    ems_staff_list_47 += "<span class='no-drag queuetime'> (" + time_in_queue + ")</span>"
+                    // ems_staff_list_47 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
+                    // ems_staff_list_47 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
                     for(child of staff_member.children){
 
                         // Get child by callsign
@@ -173,8 +173,8 @@ function updatePage(){
                         ems_staff_list_47 += "<div draggable='true' ondragstart='drag(event)' class='staff_card no-drag'>"
                         ems_staff_list_47 += "<span class='no-drag staff_card_callsign'>"+ ems_staff[staff_index].callsign +"</span>"
                         ems_staff_list_47 += "<span class='no-drag'>"+ ems_staff[staff_index].name +"</span>"
-                        ems_staff_list_47 += "<span class='no-drag'> (" + ems_staff[staff_index].status + ")</span>"
-                        ems_staff_list_47 += "<span class='no-drag'> Parent: ("+ ems_staff[staff_index].parent +")</span>"
+                        // ems_staff_list_47 += "<span class='no-drag'> (" + ems_staff[staff_index].status + ")</span>"
+                        // ems_staff_list_47 += "<span class='no-drag'> Parent: ("+ ems_staff[staff_index].parent +")</span>"
                         ems_staff_list_47 += "</div>"
 
                     }
@@ -183,13 +183,20 @@ function updatePage(){
 
                 // Else
                 else{
+                    // Get parent name
+                    // Get parent index
+                    var parent_index = ems_staff.findIndex(staff => staff.callsign == parent_callsign);
+
+
                     ems_staff_list_99 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + staff_member.callsign + "' class='staff_card'>"
                     ems_staff_list_99 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
-                    ems_staff_list_99 += "<span class='no-drag'>"+ staff_member.name +"</span>"
-                    ems_staff_list_99 += "<span class='no-drag'> (" + staff_member.status + ")</span>"
-                    ems_staff_list_99 += "<span class='no-drag'> C(" + staff_member.children + ")</span>"
-                    ems_staff_list_99 += "<span class='no-drag'> P(" + staff_member.parent + ")</span>"
+                    ems_staff_list_99 += "<span class='no-drag'>"+ staff_member.name +"</span>"                    
+                    // ems_staff_list_99 += "<div class='no-drag staff_card_parent'>"  
+                    // ems_staff_list_99 += "<span class='no-drag staff_card_callsign'>" + staff_member.parent + "</span>"
+                    ems_staff_list_99 += "<span class='no-drag staff_card_parent'>(" + ems_staff[parent_index].name + ")</span>"
+                    // ems_staff_list_99 += "</div>"  
                     ems_staff_list_99 += "</div>"  
+                    
                 }
 
             }
