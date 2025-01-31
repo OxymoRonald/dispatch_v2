@@ -53,7 +53,7 @@ function updatePage(){
 
             // Define page sections
             var ems_staff_list_06 = "<span class='no-drag col_title'>Standby</span>";
-            var ems_staff_list_07 = "<span class='no-drag col_title'>Break</span>";
+            var ems_staff_list_07 = "<span class='no-drag col_title'>On Break</span>";
             var ems_staff_list_08 = "<span class='no-drag col_title'>Ready</span>";
             var ems_staff_list_42 = "<span class='no-drag col_title'>Off Duty</span>";
             var ems_staff_list_47 = "<span class='no-drag col_title'>On call</span>";

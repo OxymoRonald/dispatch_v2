@@ -7,72 +7,12 @@
 <head>
     <!-- python -m http.server -->
     <title>Dispatch V2</title>
-    <style>
-        #drag_table, #drag_table th, #drag_table td {
-            border: 1px solid blue;
-            vertical-align: top;
-        }
-        .no-drag {
-            pointer-events: none;
-        }
-        .column {
-            width: 400px;
-            margin-bottom: 15px;
-            padding:0px 20px 8px 20px;
-            min-height: 60px;
-        }
-            .col_title {
-                background-color: coral;
-                border:1px solid red;
-                display: block;
-                line-height: 30px;
-                text-align: center;
-                padding-bottom: 10px;
-            }
-            #col_1047 {
-                background-color: rgb(96, 96, 219);
-            }
-            #col_1008 {
-                background-color: rgb(109, 236, 109);
-            }
-            #col_1007 {
-                background-color: rgb(236, 116, 116);
-            }
-            #col_1006 {
-                background-color: rgb(238, 238, 137);
-            }
-            #col_1042 {
-                background-color: brown;
-                padding-bottom: 50px;
-            }
-            #col_9999 {
-                background-color: rgb(255, 0, 191);
-                padding-bottom: 50px;
-            }
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/style.css">
 
-        .staff_card {
-            background-color: rgb(97, 97, 235);
-            padding:3px 5px 3px 5px;
-            line-height: 30px;
-            margin-bottom: 5px;
-            border:1px solid greenyellow;
-            border-radius: 18px 5px 5px 18px;
-        }
-            .staff_card:hover {
-                cursor: grab;
-            }
-            .staff_card:active {
-                cursor: grabbing;
-            }
-        .staff_card_callsign {
-            padding:3px;
-            border: 1px solid black;
-            border-radius:15px;
-            background-color: aqua;
-        }
-    </style>
+    <!-- Javascript -->
     <script type="text/javascript" src="assets/jquery-3.7.1.min.js"></script>
-    <!-- <script type="text/javascript" src="assets/drag_n_drop.js"></script> -->
     <script type="text/javascript" src="assets/dispatch_v2.js"></script>
 </head>
 
@@ -80,9 +20,11 @@
 
     <table id="drag_table">
         <tr>
-            <th>Col 1</th>
-            <th>Col 2</th>
-            <th>Col 3</th>
+            <th colspan="3" id="page_header">
+                <img src="assets/lsems.png"/>
+                <p>EMS Dispatch</p>
+                <p>v2</p>
+            </th>
         </tr>
         <tr>
             <td>
@@ -109,6 +51,9 @@
                     <span>Please enable javascript!</span>
                 </div>
             </td>
+        </tr>
+        <tr>
+            <td colspan="3" id="page_footer">Designed by OxymoRonald</td>
         </tr>
     </table>
 
