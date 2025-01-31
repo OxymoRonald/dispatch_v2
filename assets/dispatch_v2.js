@@ -52,12 +52,12 @@ function updatePage(){
             time_now = Date.now();
 
             // Define page sections
-            var ems_staff_list_06 = "<span>Standby</span>";
-            var ems_staff_list_07 = "<span>Break</span>";
-            var ems_staff_list_08 = "<span>Ready</span>";
-            var ems_staff_list_42 = "<span>Off Duty</span>";
-            var ems_staff_list_47 = "<span>On call</span>";
-            var ems_staff_list_99 = "<span>+1</span>";
+            var ems_staff_list_06 = "<span class='no-drag col_title'>Standby</span>";
+            var ems_staff_list_07 = "<span class='no-drag col_title'>Break</span>";
+            var ems_staff_list_08 = "<span class='no-drag col_title'>Ready</span>";
+            var ems_staff_list_42 = "<span class='no-drag col_title'>Off Duty</span>";
+            var ems_staff_list_47 = "<span class='no-drag col_title'>On call</span>";
+            var ems_staff_list_99 = "<span class='no-drag col_title'>+1</span>";
 
             // Iterate through staff list
             for(const[index, staff_member] of ems_staff.entries()){
@@ -262,36 +262,53 @@ function updateDispatch(id, status){
 
         // Set status
         status = status.slice(6)*1
-        console.log("Update callsign: " + id + " to status: " + status);
     }
 
     else if(status.startsWith("staff_")){
+        // Get callsign from ID
         parent_callsign = status.slice(6)*1
+
         // Get parent id by callsign
         var parent_index = ems_staff.findIndex(staff => staff.callsign == parent_callsign);
 
-        // Add parent to child
-        ems_staff[staff_index].parent = parent_callsign
-
-        // Add child to parent
-        ems_staff[parent_index].children.push(id)
-
-        // Set status
-        status = "child"
+        // If parent != child
+        if(parent_callsign == id){
+            status = ems_staff[staff_index].status;
+        }
+        else{
+            // Add parent to child
+            ems_staff[staff_index].parent = parent_callsign
+            // Add child to parent
+            ems_staff[parent_index].children.push(id)
+            // Set status to child
+            status = "child"
+        }
     }
 
     // Update status
     ems_staff[staff_index].status = status
-    // Update Timestamp
-    ems_staff[staff_index].timestamp = Date.now()
+
+    if(status == 42){
+        // Update Timestamp
+        ems_staff[staff_index].timestamp = 0 
+        // Reset parent
+        ems_staff[staff_index].parent = -1;
+        // Reset Children
+        ems_staff[staff_index].children = [];
+    }
+    else{
+        // Update Timestamp
+        ems_staff[staff_index].timestamp = Date.now()
+    }
 
     // Order by timestamp then ID
     ems_staff.sort((a,b) => a.timestamp - b.timestamp || a.callsign - b.callsign);
 
+    // Update page
     updatePage();
 }
 
-// Update page sections every 10 seconds
+// Update page every 10 seconds
 setInterval(function(){ 
     updatePage(); 
 }, 10000);
