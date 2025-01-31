@@ -290,6 +290,9 @@ function updateDispatch(id, status){
             // Set status to child
             status = "child"
         }
+        // Remove duplicate children from parent using filter with indexOf to find repeated elements
+        ems_staff[parent_index].children = ems_staff[parent_index].children.filter((item, index) => ems_staff[parent_index].children.indexOf(item) === index)
+
     }
 
     // Update status
