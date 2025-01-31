@@ -185,14 +185,15 @@ function updatePage(){
                 else{
                     // Get parent name
                     // Get parent index
-                    var parent_index = ems_staff.findIndex(staff => staff.callsign == parent_callsign);
+                    // var parent_index = ems_staff.findIndex(staff => staff.callsign == parent_callsign);
+                    var parent_index = ems_staff.findIndex(staff => staff.callsign == staff_member.parent);
 
 
                     ems_staff_list_99 += "<div draggable='true' ondragstart='drag(event)' id='staff_" + staff_member.callsign + "' class='staff_card'>"
                     ems_staff_list_99 += "<span class='no-drag staff_card_callsign'>"+ staff_member.callsign +"</span>"
                     ems_staff_list_99 += "<span class='no-drag'>"+ staff_member.name +"</span>"                    
                     // ems_staff_list_99 += "<div class='no-drag staff_card_parent'>"  
-                    // ems_staff_list_99 += "<span class='no-drag staff_card_callsign'>" + staff_member.parent + "</span>"
+                    // ems_staff_list_99 += "<span class='no-drag staff_card_callsign'>P(" + staff_member.parent + ")</span>"
                     ems_staff_list_99 += "<span class='no-drag staff_card_parent'>(" + ems_staff[parent_index].name + ")</span>"
                     // ems_staff_list_99 += "</div>"  
                     ems_staff_list_99 += "</div>"  
