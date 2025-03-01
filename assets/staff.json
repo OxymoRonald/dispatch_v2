@@ -2,183 +2,107 @@
     "staff":[            
         {
             "name":"Neil Down",
-            "callsign": 1           
+            "callsign": 1          
         },
         {
-            "name":"Bunny O'connor",
-            "callsign": 2           
+            "name":"Bunny Cottontail-Down",
+            "callsign": 2          
         },
         {
             "name":"Emma Thomas",
-            "callsign": 3           
+            "callsign": 3          
         },
         {
             "name":"Okami Scarlet",
-            "callsign": 8           
+            "callsign": 4          
         },
         {
             "name":"Clint Taurus",
-            "callsign": 9           
+            "callsign": 7          
+        },
+        {
+            "name":"Lexi Cottontail",
+            "callsign": 8          
         },
         {
             "name":"Dutch Courage",
-            "callsign": 10           
-        },
-        {
-            "name":"Shaw Macdonald",
-            "callsign": 17           
-        },
-        {
-            "name":"Jutty Graffanino",
-            "callsign": 18           
-        },
-        {
-            "name":"Paul Selena Monroe",
-            "callsign": 19           
-        },
-        {
-            "name":"Giggle Gooberson",
-            "callsign": 20           
+            "callsign": 10          
         },
         {
             "name":"Maya Monroe",
-            "callsign": 22           
+            "callsign": 11          
         },
         {
-            "name":"Hat Dancin",
-            "callsign": 23           
+            "name":"Paul Selena Monroe",
+            "callsign": 12          
         },
         {
-            "name":"Jordan Ried",
-            "callsign": 24           
-        },
-        {
-            "name":"Freya Glace",
-            "callsign": 25           
-        },
-        {
-            "name":"Lexi Vegas",
-            "callsign": 26           
-        },
-        {
-            "name":"Calypso Izkander",
-            "callsign": 30           
-        },
-        {
-            "name":"Jesse Chains",
-            "callsign": 33           
-        },
-        {
-            "name":"Gabe Logan",
-            "callsign": 35           
+            "name":"Jutty Graffanino",
+            "callsign": 21          
         },
         {
             "name":"Steven Bean",
-            "callsign": 37           
-        },
-        {
-            "name":"Mark Reid",
-            "callsign": 49           
-        },
-        {
-            "name":"Sky Brave",
-            "callsign": 50           
-        },
-        {
-            "name":"James Mitchell",
-            "callsign": 53           
-        },
-        {
-            "name":"Alex Ortiz",
-            "callsign": 54           
-        },
-        {
-            "name":"jenny Campbell",
-            "callsign": 55           
-        },
-        {
-            "name":"Robert Punk",
-            "callsign": 56           
-        },
-        {
-            "name":"James Spoon",
-            "callsign": 57           
-        },
-        {
-            "name":"Stefan Hightower",
-            "callsign": 59           
-        },
-        {
-            "name":"Archibold Nutts",
-            "callsign": 60           
-        },
-        {
-            "name":"Rick Harper",
-            "callsign": 61           
-        },
-        {
-            "name":"John Browning",
-            "callsign": 62           
+            "callsign": 22          
         },
         {
             "name":"Cleo Lovelace",
-            "callsign": 63           
+            "callsign": 23          
         },
         {
-            "name":"Jinx Monroe",
-            "callsign": 64           
+            "name":"Hat Dancin",
+            "callsign": 24          
         },
         {
-            "name":"Elroy Matters",
-            "callsign": 65           
+            "name":"Jordan Reid",
+            "callsign": 25          
         },
         {
-            "name":"Daniel Parhke",
-            "callsign": 66           
+            "name":"Freya Glace",
+            "callsign": 26          
         },
         {
-            "name":"Kaiden Kolens",
-            "callsign": 67           
+            "name":"Exa Starchild",
+            "callsign": 28          
+        },
+        {
+            "name":"Sky Brave",
+            "callsign": 41          
+        },
+        {
+            "name":"John Browning",
+            "callsign": 42          
+        },
+        {
+            "name":"Saif Neon",
+            "callsign": 43          
+        },
+        {
+            "name":"Stefan Hightower",
+            "callsign": 44          
+        },
+        {
+            "name":"Mike Mitchell",
+            "callsign": 46          
+        },
+        {
+            "name":"Archibold Nutts",
+            "callsign": 47          
+        },
+        {
+            "name":"Rob Otaro",
+            "callsign": 48          
+        },
+        {
+            "name":"Timothy Turner",
+            "callsign": 49          
+        },
+        {
+            "name":"Lao Langtzu",
+            "callsign": 62          
         },
         {
             "name":"Sanji Oker",
-            "callsign": 68           
-        },
-        {
-            "name":"Lilly Green",
-            "callsign": 69           
-        },
-        {
-            "name":"Vani Sacher",
-            "callsign": 70           
-        },
-        {
-            "name":"James James",
-            "callsign": 71           
-        },
-        {
-            "name":"Kurt Cocain",
-            "callsign": 73           
-        },
-        {
-            "name":"Nicholas Carter",
-            "callsign": 74           
-        },
-        {
-            "name":"Henry Kassettentoster",
-            "callsign": 76           
-        },
-        {
-            "name":"Jeff Hayes",
-            "callsign": 77           
-        },
-        {
-            "name":"Ronald Mahal",
-            "callsign": 78           
-        },
-        {
-            "name":"Joe Kerr",
-            "callsign": 79           
+            "callsign": 75         
         }
     ]
 }
